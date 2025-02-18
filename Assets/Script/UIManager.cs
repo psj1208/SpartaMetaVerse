@@ -59,7 +59,6 @@ public class UIManager : MonoBehaviour
         {
             text.text = talkData;
         }
-
         isAction = true;
         talkIndex++;
     }
