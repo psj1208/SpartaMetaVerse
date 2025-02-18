@@ -33,6 +33,7 @@ public class BaseInteract : MonoBehaviour
     {
         Debug.Log("상호작용!");
         UIManager.instance.Action(this.gameObject);
+        UIManager.instance.InteractMessage(CanInter);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,6 +41,7 @@ public class BaseInteract : MonoBehaviour
         if (collision.tag.Equals("Player"))
         {
             CanInteract(true);
+            UIManager.instance.InteractMessage(CanInter);
         }
     }
 
@@ -55,6 +57,7 @@ public class BaseInteract : MonoBehaviour
         if (collision.tag.Equals("Player"))
         {
             CanInteract(false);
+            UIManager.instance.InteractMessage(CanInter);
         }
     }
 }

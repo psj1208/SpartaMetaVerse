@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [SerializeField] private GameObject talkPanel;
     [SerializeField] private Text text;
+    [SerializeField] private GameObject headTextPanel;
 
     private bool isAction = false;
     public bool IsAction { get { return isAction; } }
@@ -23,6 +25,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         talkPanel.SetActive(false);
+        headTextPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,5 +64,11 @@ public class UIManager : MonoBehaviour
         }
         isAction = true;
         talkIndex++;
+    }
+
+    public void InteractMessage(bool inter_mess)
+    {
+        bool isBool = (isAction == false) && (inter_mess == true) ? true : false;
+        headTextPanel.SetActive(isBool);
     }
 }
