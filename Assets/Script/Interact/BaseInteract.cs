@@ -32,7 +32,7 @@ public class BaseInteract : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("상호작용!");
-        UIManager.instance.Action(this.gameObject);
+        UIManager.instance.Action(this.gameObject); 
         UIManager.instance.InteractMessage(CanInter);
     }
 

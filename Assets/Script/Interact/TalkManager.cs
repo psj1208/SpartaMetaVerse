@@ -16,7 +16,7 @@ public class TalkManager : MonoBehaviour
     
     void GenerateData()
     {
-        talkData.Add(1000, new string[] { "반갑습니다.", "여기는 스파르타 공간입니다." });
+        talkData.Add(1000, new string[] { "반갑습니다.", "여기는 스파르타 공간입니다.", "미니게임이 준비되어있으니 즐겨주세요."});
     }
 
     public string GetTalk(int id, int talkIndex)
