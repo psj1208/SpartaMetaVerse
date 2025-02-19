@@ -48,6 +48,6 @@ public class ScoreUI : BaseUI
 
     void OnClickExitButton()
     {
-        uiManager.OnClickExit();
+        TransitionManager.Instance.SceneTrans("MainScene");
     }
 }

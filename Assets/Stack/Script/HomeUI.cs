@@ -32,6 +32,6 @@ public class HomeUI : BaseUI
 
     void OnClickExitButton()
     {
-        uiManager.OnClickExit();
+        TransitionManager.Instance.SceneTrans("MainScene");
     }
 }
