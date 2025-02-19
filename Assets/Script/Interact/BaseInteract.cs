@@ -21,7 +21,7 @@ public class BaseInteract : MonoBehaviour
     protected virtual void Update()
     {
         if (CanInter == true)
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !UIManager.instance.IsSelecting)
                 Interact();
     }
 
