@@ -7,10 +7,12 @@ public class PlayerController : BaseController
 {
     // Start is called before the first frame update
     private Camera camera;
+    [SerializeField] private PlayerEquip pEquip;
 
     private void Start()
     {
         camera = Camera.main;
+        pEquip = GetComponent<PlayerEquip>();
     }
     void OnMove(InputValue inputValue)
     {
@@ -32,5 +34,11 @@ public class PlayerController : BaseController
         {
             lookDirection = lookDirection.normalized;
         }
+    }
+
+    protected override void Rotate(Vector2 direction)
+    {
+        base.Rotate(direction);
+        pEquip.flipAcc(IsLeft);
     }
 }

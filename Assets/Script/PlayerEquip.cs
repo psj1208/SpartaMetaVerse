@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerEquip : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject accessory;
+    public Sprite Accessory { set{ accessory.GetComponent<SpriteRenderer>().sprite = value; } }
+
+    public void Start()
     {
-        
+        accessory = GameObject.Find("Head").transform.Find("Ac").gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void flipAcc(bool isLeft)
     {
-        
+        accessory.GetComponent<SpriteRenderer>().flipX = isLeft;
     }
 }

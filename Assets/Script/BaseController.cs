@@ -19,6 +19,8 @@ public class BaseController : MonoBehaviour
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
 
+    private bool isLeft = false;
+    public bool IsLeft {  get { return isLeft; } }
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -59,10 +61,10 @@ public class BaseController : MonoBehaviour
         animatinoHandler.Move(direction);
     }
 
-    private void Rotate(Vector2 direction)
+    protected virtual void Rotate(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bool isLeft = Mathf.Abs(rotZ) > 90f;
+        isLeft = Mathf.Abs(rotZ) > 90f;
 
         characterSprite.flipX = isLeft;
     }
