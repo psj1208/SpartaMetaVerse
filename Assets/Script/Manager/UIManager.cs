@@ -8,6 +8,8 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
+    //Switch Case문에서 TalkingType을 이용하여 구분해 버튼에 기능을 넣습니다.
+    //isActino과 isSelect는 플레이어의 행동을 막기 위해 상황에 맞게 값을 변경합니다.(플레이어 컨트롤러에서 이용함)
     public static UIManager instance;
     [Header("패널 등록")]
     [SerializeField] private GameObject talkPanel;

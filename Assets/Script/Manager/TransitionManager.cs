@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
+    //씬 이동 시에 포지션을 저장합니다. 씬 이동시에 파괴되지 않고 중복 생성을 막기 위해 코드를 추가했습니다.
     public static TransitionManager Instance;
     private bool isHome = true;
     public bool IsHome { get { return isHome; } }

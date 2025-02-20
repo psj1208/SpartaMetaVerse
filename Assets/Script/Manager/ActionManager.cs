@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ActionManager : MonoBehaviour
 {
+    //액션을 담은 리스트를 만들어서 UIManager에서 이용 가능하게 만들었습니다.(대화 선택지 혹은 트리거를 골랏을 때 함수가 작동하도록 만들기 위함)
     public static ActionManager instance;
     List<(int id, Action ac)> actionlist;
 

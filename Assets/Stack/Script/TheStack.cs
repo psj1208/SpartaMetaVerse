@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TheStack : MonoBehaviour
 {
+    // 스택 게임은 딱히 건든 게 없습니다.
     // Const Value
     private const float BoundSize = 3.5f;
     private const float MovingBoundsSize = 3f;

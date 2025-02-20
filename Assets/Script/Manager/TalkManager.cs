@@ -13,6 +13,7 @@ public enum TalkingType
     Quest,
     Action
 }
+//Npc와 상호작용해서 대화로 가기 위해 식별용 id, 대화 정보를 담은 talk,그리고 선택지 혹은 행동이 되도록 TalkingType을 포함한 변수형을 선언
 public struct Talking
 {
     public int id;

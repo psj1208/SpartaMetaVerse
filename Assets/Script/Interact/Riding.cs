@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Riding : BaseInteract
 {
+    // 탑승물의 상태를 건내주기 위함.
     [SerializeField] private StatHandler stat;
     [SerializeField] private AnimationHandler anim;
 

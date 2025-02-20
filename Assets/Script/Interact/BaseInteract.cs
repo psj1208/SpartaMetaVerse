@@ -22,15 +22,6 @@ public class BaseInteract : MonoBehaviour
 
     }
 
-    /*
-    protected virtual void Update()
-    {
-        if (CanInter == true)
-            if (Input.GetKeyDown(KeyCode.E) && !UIManager.instance.IsSelecting)
-                Interact();
-    }
-    */
-
     protected virtual void CanInteract(bool input)
     {
         CanInter = input;
@@ -40,7 +31,7 @@ public class BaseInteract : MonoBehaviour
         Debug.Log("상호작용!");
         //UIManager.instance.InteractMessage(true);
     }
-
+    //주석 처리 된 것은 상호작용 범위를 Npc한테 할당했을 때 사용하던 것입니다. 머리 위에 E 표시 뜨게 해놨는데. 막판 와서 맘에 안 들어서 바꾸다보니 까먹었습니다.
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {

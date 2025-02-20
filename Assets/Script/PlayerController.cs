@@ -28,11 +28,13 @@ public class PlayerController : BaseController
     {
         canMove = !UIManager.instance.IsSelecting && !UIManager.instance.IsAction;
         base.Update();
+        //dectctionRadius만큼 반지름을 가지는 원을 만들어 주변에 상호작용 물체가 있는 지 검사.
         Collider2D col = Physics2D.OverlapCircle(transform.position, detectionRadius, Interaction);
         if (col != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                //탑승하고있거나 선택지 고르는 중이면 상호작용 불가.
                 if (!UIManager.instance.IsSelecting && isRiding == false)
                     col.gameObject.GetComponent<BaseInteract>().Interact();
                 else if (isRiding == true)
@@ -80,12 +82,12 @@ public class PlayerController : BaseController
                 statHandler.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = IsLeft;
         }
     }
-
+    //액세서리 변경
     public void ChangeAccessory(Sprite sprite)
     {
         pEquip.Accessory = sprite;
     }
-
+    //탑승(원래는 Ride물체에 자기가 가진 크기도 포함해서 그만큼 캐릭터의 스프라이트 좌표를 위로 올릴려했는데 급해서 급조함.)
     public void Ride(StatHandler stat = null, AnimationHandler animation = null)
     {
         animationHandler.StopAnim();
@@ -111,7 +113,7 @@ public class PlayerController : BaseController
             originalAnim = null;
         }
     }
-
+    //반경 확인용 기즈모
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         if (target == null)
             return;
     }
-
+    //카메라가 자연스럽게 따라가도록 Lerp. 그리고 이동 반경 제한을 위한 Clamp
     private void FixedUpdate()
     {
         if(target == null) return;
