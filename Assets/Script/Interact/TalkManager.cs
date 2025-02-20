@@ -78,6 +78,15 @@ public class TalkManager : MonoBehaviour
             new string[] { "마음 껏 둘러보시기 바랍니다." }
             ));
         talkData.Add(new Talking(
+            1050,
+            new string[] { "액세서리를 변경하시겠어요?" },
+            new (string, int, TalkingType)[]
+            {
+                ("변경하겠습니다.", 1002,TalkingType.Action),
+                ("아직입니다.", 5002,TalkingType.Select)
+            }
+            ));
+        talkData.Add(new Talking(
             5000,
             new string[] {"Stack에 입장하시겠습니까?"},
             new (string, int, TalkingType)[]
@@ -89,6 +98,15 @@ public class TalkManager : MonoBehaviour
         talkData.Add(new Talking(
             5002,
             new string[] { "알겠습니다." }
+            ));
+        talkData.Add(new Talking(
+            5050,
+            new string[] { "리더보드를 확인하시겠습니까?" },
+            new (string, int, TalkingType)[]
+            {
+                ("확인하겠습니다.", 1003,TalkingType.Action),
+                ("아직입니다.", 5002,TalkingType.Select)
+            }
             ));
     }
     

@@ -17,10 +17,4 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = TransitionManager.Instance.LastCharacterPos;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

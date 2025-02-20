@@ -9,9 +9,13 @@ using System;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+    [Header("패널 등록")]
     [SerializeField] private GameObject talkPanel;
-    [SerializeField] private Text text;
+    [SerializeField] private GameObject AcPanel;
     [SerializeField] private GameObject headTextPanel;
+    [SerializeField] private GameObject LeaderBoardPanel;
+    [Header("그 외")]
+    [SerializeField] private Text text;
     [SerializeField] private GameObject selectPrefab;
     [SerializeField] private GameObject selectLayer;
 
@@ -35,6 +39,7 @@ public class UIManager : MonoBehaviour
     {
         talkPanel.SetActive(false);
         headTextPanel.SetActive(false);
+        AcPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,7 +47,37 @@ public class UIManager : MonoBehaviour
     {
         
     }
+    #region 대화 제외 패널 조작 관련
+    public void ChangeAcPanelState(bool state)
+    {
+        AcPanel.SetActive(state);
+        if (state)
+        {
+            isSelecting = true;
+            ClearTextPanel();
+        }
+        else
+        {
+            isSelecting = false;
+        }
+    }
 
+    public void ChangeLeaderBoardState(bool state)
+    {
+        LeaderBoardPanel.SetActive(state);
+        if (state)
+        {
+            LeaderBoardPanel.GetComponentInChildren<LeaderBoard>().Init();
+            isSelecting = true;
+            ClearTextPanel();
+        }
+        else
+        {
+            isSelecting = false;
+        }
+    }
+    #endregion
+    #region 대화 관련
     /// <summary>
     /// 대화창 열기
     /// </summary>
@@ -167,4 +202,13 @@ public class UIManager : MonoBehaviour
             Destroy(obj.gameObject);
         }
     }
+    
+    public void ClearTextPanel()
+    {
+        id_ = 0;
+        isSelecting = false;
+        isAction = false;
+        talkPanel.SetActive(false);
+    }
+    #endregion
 }

@@ -24,8 +24,10 @@ public class ActionManager : MonoBehaviour
 
     void GenerateList()
     {
-        actionlist.Add((1000,() => { TransitionManager.Instance.SceneTrans("MiniGame"); }));
+        actionlist.Add((1000, () => { TransitionManager.Instance.SceneTrans("MiniGame"); }));
         actionlist.Add((1001, () => { TransitionManager.Instance.SceneTrans("Stack"); }));
+        actionlist.Add((1002, () => { UIManager.instance.ChangeAcPanelState(true); }));
+        actionlist.Add((1003, () => { UIManager.instance.ChangeLeaderBoardState(true); }));
     }
 
     /// <summary>
