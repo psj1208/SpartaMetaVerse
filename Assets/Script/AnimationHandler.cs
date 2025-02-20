@@ -23,6 +23,11 @@ public class AnimationHandler : MonoBehaviour
         animator.SetBool(IsMoving, obj.magnitude > .5f);
     }
 
+    public void StopAnim()
+    {
+        animator.Rebind();
+        animator.Play("Idle");
+    }
     /*
     public void Damage()
     {

@@ -8,8 +8,6 @@ public class PlayerEquip : MonoBehaviour
 {
     [SerializeField] private GameObject accessory;
     [SerializeField] private GameObject vehicle;
-    private VehicleController vehicleController;
-    public bool isBoard;
     public Sprite Accessory { set{ accessory.GetComponent<SpriteRenderer>().sprite = value; } }
 
     public void Start()

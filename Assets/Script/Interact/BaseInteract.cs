@@ -22,23 +22,26 @@ public class BaseInteract : MonoBehaviour
 
     }
 
+    /*
     protected virtual void Update()
     {
         if (CanInter == true)
             if (Input.GetKeyDown(KeyCode.E) && !UIManager.instance.IsSelecting)
                 Interact();
     }
+    */
 
     protected virtual void CanInteract(bool input)
     {
         CanInter = input;
     }
-    protected virtual void Interact()
+    public virtual void Interact()
     {
         Debug.Log("상호작용!");
-        UIManager.instance.InteractMessage(CanInter);
+        //UIManager.instance.InteractMessage(true);
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Player"))
@@ -63,4 +66,5 @@ public class BaseInteract : MonoBehaviour
             UIManager.instance.InteractMessage(CanInter);
         }
     }
+    */
 }

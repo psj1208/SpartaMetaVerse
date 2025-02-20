@@ -5,10 +5,10 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody;
-    protected AnimationHandler animatinoHandler;
+    protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
-    [SerializeField] private SpriteRenderer characterSprite;
+    [SerializeField] protected SpriteRenderer characterSprite;
 
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; } }
@@ -24,7 +24,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        animatinoHandler = GetComponent<AnimationHandler>();
+        animationHandler = GetComponent<AnimationHandler>();
         statHandler = GetComponent<StatHandler>();
     }
 
@@ -58,7 +58,7 @@ public class BaseController : MonoBehaviour
         }
 
         _rigidbody.velocity = direction;
-        animatinoHandler.Move(direction);
+        animationHandler.Move(direction);
     }
 
     protected virtual void Rotate(Vector2 direction)

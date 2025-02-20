@@ -7,7 +7,7 @@ public class NpcInteract : BaseInteract
 {
     [SerializeField] private int npcCode = 0;
     public int NpcCode { get { return npcCode; } }
-    protected override void Interact()
+    public override void Interact()
     {
         UIManager.instance.Action(this.gameObject);
     }

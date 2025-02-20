@@ -1585,7 +1585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735958635050443253, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4411727059553751883, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_text
@@ -1685,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9101691872926015023, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1707,7 +1707,8 @@ GameObject:
   m_Component:
   - component: {fileID: 157373814}
   - component: {fileID: 157373815}
-  m_Layer: 7
+  - component: {fileID: 157373816}
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Vehicle
   m_Icon: {fileID: 0}
@@ -1781,6 +1782,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &157373816
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157373813}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 064d898173428994b8313b2fea979344, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &169667207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9522,7 +9544,7 @@ GameObject:
   - component: {fileID: 466853666}
   - component: {fileID: 466853665}
   m_Layer: 7
-  m_Name: Stack (1)
+  m_Name: Leader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10227,7 +10249,7 @@ Transform:
   m_GameObject: {fileID: 848008504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13823,7 +13845,7 @@ GameObject:
   - component: {fileID: 1159276229}
   - component: {fileID: 1159276230}
   - component: {fileID: 1159276231}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13930,7 +13952,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13941,7 +13963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1162255240
 GameObject:
@@ -14798,6 +14820,7 @@ GameObject:
   - component: {fileID: 1373389700}
   - component: {fileID: 1373389704}
   - component: {fileID: 1373389703}
+  - component: {fileID: 1373389705}
   m_Layer: 7
   m_Name: Vehicle
   m_TagString: Vehicle
@@ -14893,6 +14916,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d9db62bf86e08418edcfe8dac7bca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1373389705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373389698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2316f6d219795e44f9598d5629b45400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  isNpc: 0
+  stat: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &1376000933
 GameObject:
   m_ObjectHideFlags: 0
@@ -15004,10 +15043,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 425888884}
   pEquip: {fileID: 0}
-  detectionRadius: 2
+  detectionRadius: 1.5
   Interaction:
     serializedVersion: 2
     m_Bits: 128
+  riding: {fileID: 848008504}
+  originalStat: {fileID: 0}
+  originalAnim: {fileID: 0}
 --- !u!61 &1376000939
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15094,7 +15136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessory: {fileID: 0}
   vehicle: {fileID: 0}
-  isBoard: 0
 --- !u!1 &1435488457
 GameObject:
   m_ObjectHideFlags: 0
@@ -15154,7 +15195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735958635050443253, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4411727059553751883, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_text
@@ -15242,7 +15283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9101691872926015023, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15310,7 +15351,7 @@ GameObject:
   - component: {fileID: 1485661875}
   - component: {fileID: 1485661876}
   - component: {fileID: 1485661877}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15439,7 +15480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1530914936}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RidePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15739,7 +15780,7 @@ GameObject:
   - component: {fileID: 1552053770}
   - component: {fileID: 1552053771}
   - component: {fileID: 1552053772}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15846,7 +15887,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15857,7 +15898,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.75}
+  m_Size: {x: 1.1, y: 1.8}
   m_EdgeRadius: 0
 --- !u!1 &1678282146
 GameObject:
@@ -16269,8 +16310,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1943758964}
   - component: {fileID: 1943758966}
-  - component: {fileID: 1943758965}
-  m_Layer: 7
+  - component: {fileID: 1943758967}
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16293,51 +16334,6 @@ Transform:
   - {fileID: 133537880}
   m_Father: {fileID: 466853667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1943758965
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943758963}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &1943758966
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16390,6 +16386,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1943758967
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943758963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1944489365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16831,7 +16872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735958635050443253, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4411727059553751883, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_text
@@ -16927,7 +16968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9101691872926015023, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16953,7 +16994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735958635050443253, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4411727059553751883, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_text
@@ -17053,7 +17094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9101691872926015023, guid: ab85342e75ef19f4db1ba3ac12f8eb34, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
