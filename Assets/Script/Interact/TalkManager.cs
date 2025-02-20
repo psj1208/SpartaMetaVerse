@@ -16,14 +16,12 @@ public enum TalkingType
 public struct Talking
 {
     public int id;
-    public TalkingType type;
     public string[] talk;
-    public (string select, int selectid)[] selectTalk;
+    public (string select, int selectid, TalkingType type)[] selectTalk;
 
-    public Talking(int id_, TalkingType type,string[] talk_, (string sel_, int selectid_)[] select_ = null)
+    public Talking(int id_, string[] talk_, (string sel_, int selectid_, TalkingType type_)[] select_ = null)
     {
         id = id_;
-        this.type = type;
         talk = talk_;
         selectTalk = select_;
     }
@@ -36,7 +34,14 @@ public class TalkManager : MonoBehaviour
     List<Talking> talkData;
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         talkData = new List<Talking>();
         GenerateData();
     }
@@ -45,23 +50,45 @@ public class TalkManager : MonoBehaviour
     {
         talkData.Add(new Talking(
             1000,
-            TalkingType.Select,
             new string[] { "반갑습니다.", "여기는 스파르타 공간입니다.", "반가워요." },
-            new (string, int)[]
+            new (string, int, TalkingType)[]
             {
-                ("반갑습니다.", 1001),
-                ("반갑지 않습니다.", 1002)
+                ("반갑습니다.", 1001, TalkingType.Select),
+                ("반갑지 않습니다.", 1002, TalkingType.Select)
             }
             ));
         talkData.Add(new Talking(
             1001,
-            TalkingType.Talk,
-            new string[] {"예의가 바르시군요."}
+            new string[] { "예의가 바르시군요." },
+            new (string, int, TalkingType)[]
+            {
+                ("",1005,TalkingType.Talk)
+            }
             ));
         talkData.Add(new Talking(
             1002,
-            TalkingType.Talk,
-            new string[] { "예의가 없으시군요." }
+            new string[] { "예의가 없으시군요." },
+            new (string, int, TalkingType)[]
+            {
+                ("싸우자!", 1000,TalkingType.Action)
+            }
+            ));
+        talkData.Add(new Talking(
+            1005,
+            new string[] { "마음 껏 둘러보시기 바랍니다." }
+            ));
+        talkData.Add(new Talking(
+            5000,
+            new string[] {"Stack에 입장하시겠습니까?"},
+            new (string, int, TalkingType)[]
+            {
+                ("입장하겠습니다.", 1001,TalkingType.Action),
+                ("아직입니다.", 5002,TalkingType.Select)
+            }
+            ));
+        talkData.Add(new Talking(
+            5002,
+            new string[] { "알겠습니다." }
             ));
     }
     

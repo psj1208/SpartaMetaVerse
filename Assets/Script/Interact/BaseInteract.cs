@@ -7,12 +7,16 @@ using UnityEngine;
 public class BaseInteract : MonoBehaviour
 {
     [SerializeField] private int id;
-    public int Id {  get { return id; } }
+    public int Id {  get { return id; } set { id = value; } }
     [SerializeField] private bool isNpc;
     public bool IsNpc { get { return isNpc; } }
 
     private bool CanInter = false;
 
+    public void ChangeId(int input)
+    {
+        id = input;
+    }
     protected virtual void Start()
     {
 
@@ -32,7 +36,6 @@ public class BaseInteract : MonoBehaviour
     protected virtual void Interact()
     {
         Debug.Log("상호작용!");
-        UIManager.instance.Action(this.gameObject); 
         UIManager.instance.InteractMessage(CanInter);
     }
 

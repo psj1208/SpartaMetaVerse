@@ -31,7 +31,14 @@ public class UIManagerStack : MonoBehaviour
     TheStack theStack = null;
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         theStack = FindObjectOfType<TheStack>();
         
         homeUI = GetComponentInChildren<HomeUI>(true);

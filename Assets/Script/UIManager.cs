@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -49,11 +51,23 @@ public class UIManager : MonoBehaviour
         BaseInteract inter = input.GetComponent<BaseInteract>();
         if (id_ == 0)
             id_ = inter.Id;
-        Talk(id_, inter.IsNpc);
-        talkPanel.SetActive(isAction);
+        if (inter != null)
+        {
+            Talk(id_, inter.IsNpc, inter);
+            talkPanel.SetActive(isAction);
+        }
+        else
+        { 
+            return; 
+        }
     }
 
-    void Talk(int id,bool isNpc)
+    /// <summary>
+    /// Action에서 연계되는 메서드
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="isNpc"></param>
+    void Talk(int id, bool isNpc, BaseInteract input)
     {
         Talking? talkData = TalkManager.instance.GetTalk(id);
 
@@ -74,12 +88,19 @@ public class UIManager : MonoBehaviour
         }
         isAction = true;
         talkIndex++;
-        if (talkIndex == talkData.Value.talk.Length) 
+        if (talkIndex == talkData.Value.talk.Length && talkData.Value.selectTalk != null) 
         {
-            if (talkData.Value.type == TalkingType.Select && talkData.Value.selectTalk != null)
+            isSelecting = true;
+            foreach (var select in talkData.Value.selectTalk)
             {
-                isSelecting = true;
-                foreach (var select in talkData.Value.selectTalk)
+                if (select.type == TalkingType.Talk)
+                {
+                    Debug.Log(select.selectid);
+                    input.Id = select.selectid;
+                    isSelecting = false;
+                    break;
+                }
+                else
                 {
                     GameObject obj = Instantiate(selectPrefab, selectLayer.transform);
                     Button but = obj.GetComponent<Button>();
@@ -87,19 +108,47 @@ public class UIManager : MonoBehaviour
 
                     text.text = select.select;
 
-                    but.onClick.AddListener(() =>
+                    switch (select.type)
                     {
-                        id_ = select.selectid;
-                        talkIndex = 0;
-                        ClearButton();
-                        isSelecting = false;
-                        Talk(id_, isNpc);
-                    });
+                        case TalkingType.Select:
+                            but.onClick.AddListener(() =>
+                            {
+                                id_ = select.selectid;
+                                talkIndex = 0;
+                                ClearButton();
+                                isSelecting = false;
+                                Talk(id_, isNpc, input);
+                            });
+                            break;
+                        case TalkingType.Action:
+                            but.onClick.AddListener(() =>
+                            {
+                                id_ = select.selectid;
+                                talkIndex = 0;
+                                ClearButton();
+                                isSelecting = false;
+                                Action action = ActionManager.instance.GetActionList(id_);
+                                if (action != null)
+                                {
+                                    action.Invoke();
+                                }
+                                else
+                                {
+                                    Debug.LogError($"ActionManager에서 ID {id_}에 대한 액션을 찾을 수 없습니다!");
+                                }
+                            });
+                            break;
+                        case TalkingType.Quest:
+                            break;
+                        default:
+                            ClearButton();
+                            isSelecting = false;
+                            break;
+                    }
                 }
             }
         }
     }
-
 
     /// <summary>
     /// 플레이어 머리 위에 상호작용 가능 띄우기.
