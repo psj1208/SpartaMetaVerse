@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    //¾À ÀÌµ¿ ½Ã¿¡ Æ÷Áö¼ÇÀ» ÀúÀåÇÕ´Ï´Ù. ¾À ÀÌµ¿½Ã¿¡ ÆÄ±«µÇÁö ¾Ê°í Áßº¹ »ı¼ºÀ» ¸·±â À§ÇØ ÄÚµå¸¦ Ãß°¡Çß½À´Ï´Ù.
+    //ì”¬ ì´ë™ ì‹œì— í¬ì§€ì…˜ì„ ì €ì¥í•©ë‹ˆë‹¤. ì”¬ ì´ë™ì‹œì— íŒŒê´´ë˜ì§€ ì•Šê³  ì¤‘ë³µ ìƒì„±ì„ ë§‰ê¸° ìœ„í•´ ì½”ë“œë¥¼ ì¶”ê°€í–ˆìŠµë‹ˆë‹¤..
     public static TransitionManager Instance;
     private bool isHome = true;
     public bool IsHome { get { return isHome; } }

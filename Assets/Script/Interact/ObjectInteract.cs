@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectInteract : BaseInteract
 {
-    //»óÈ£ÀÛ¿ë °¡´ÉÇÏ ¹°Ã¼ Àü¿ë ½ºÅ©¸³Æ®
+    //ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•˜ ë¬¼ì²´ ì „ìš© ìŠ¤í¬ë¦½íŠ¸.
     [SerializeField] private int objectCode;
     public int ObjectCode { get { return objectCode; } }
 

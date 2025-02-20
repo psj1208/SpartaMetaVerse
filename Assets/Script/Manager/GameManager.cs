@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //ÇÃ·¹ÀÌ¾î Âü°í¿ë °ÔÀÓ¸Å´ÏÀú, TransitionManager¿¡¼­ ÀÌµ¿ÇßÀ» ¶§ÀÇ Æ÷Áö¼ÇÀ» °¡Á®¿Í¼­ ÇÃ·¹ÀÌ¾î¸¦ °­Á¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
+    //í”Œë ˆì´ì–´ ì°¸ê³ ìš© ê²Œì„ë§¤ë‹ˆì €, TransitionManagerì—ì„œ ì´ë™í–ˆì„ ë•Œì˜ í¬ì§€ì…˜ì„ ê°€ì ¸ì™€ì„œ í”Œë ˆì´ì–´ë¥¼ ê°•ì œ ì´ë™ì‹œí‚µë‹ˆë‹¤.
     public static GameManager Instance;
     [SerializeField] private GameObject player;
     public GameObject Player { get { return player; } }

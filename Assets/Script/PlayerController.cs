@@ -12,7 +12,7 @@ public class PlayerController : BaseController
     [SerializeField] private PlayerEquip pEquip;
     [SerializeField] float detectionRadius = 5.0f;
     [SerializeField] private LayerMask Interaction;
-    [Header("Å¾½Â °ü·Ã")]
+    [Header("íƒ‘ìŠ¹ ê´€ë ¨")]
     [SerializeField] private GameObject riding;
     [SerializeField] private StatHandler originalStat;
     [SerializeField] private AnimationHandler originalAnim;
@@ -28,13 +28,13 @@ public class PlayerController : BaseController
     {
         canMove = !UIManager.instance.IsSelecting && !UIManager.instance.IsAction;
         base.Update();
-        //dectctionRadius¸¸Å­ ¹İÁö¸§À» °¡Áö´Â ¿øÀ» ¸¸µé¾î ÁÖº¯¿¡ »óÈ£ÀÛ¿ë ¹°Ã¼°¡ ÀÖ´Â Áö °Ë»ç.
+        //dectctionRadiusë§Œí¼ ë°˜ì§€ë¦„ì„ ê°€ì§€ëŠ” ì›ì„ ë§Œë“¤ì–´ ì£¼ë³€ì— ìƒí˜¸ì‘ìš© ë¬¼ì²´ê°€ ìˆëŠ” ì§€ ê²€ì‚¬.
         Collider2D col = Physics2D.OverlapCircle(transform.position, detectionRadius, Interaction);
         if (col != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //Å¾½ÂÇÏ°íÀÖ°Å³ª ¼±ÅÃÁö °í¸£´Â ÁßÀÌ¸é »óÈ£ÀÛ¿ë ºÒ°¡.
+                //íƒ‘ìŠ¹í•˜ê³ ìˆê±°ë‚˜ ì„ íƒì§€ ê³ ë¥´ëŠ” ì¤‘ì´ë©´ ìƒí˜¸ì‘ìš© ë¶ˆê°€.
                 if (!UIManager.instance.IsSelecting && isRiding == false)
                     col.gameObject.GetComponent<BaseInteract>().Interact();
                 else if (isRiding == true)
@@ -82,12 +82,12 @@ public class PlayerController : BaseController
                 statHandler.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = IsLeft;
         }
     }
-    //¾×¼¼¼­¸® º¯°æ
+    //ì•¡ì„¸ì„œë¦¬ ë³€ê²½.
     public void ChangeAccessory(Sprite sprite)
     {
         pEquip.Accessory = sprite;
     }
-    //Å¾½Â(¿ø·¡´Â Ride¹°Ã¼¿¡ ÀÚ±â°¡ °¡Áø Å©±âµµ Æ÷ÇÔÇØ¼­ ±×¸¸Å­ Ä³¸¯ÅÍÀÇ ½ºÇÁ¶óÀÌÆ® ÁÂÇ¥¸¦ À§·Î ¿Ã¸±·ÁÇß´Âµ¥ ±ŞÇØ¼­ ±ŞÁ¶ÇÔ.)
+    //íƒ‘ìŠ¹(ì›ë˜ëŠ” Rideë¬¼ì²´ì— ìê¸°ê°€ ê°€ì§„ í¬ê¸°ë„ í¬í•¨í•´ì„œ ê·¸ë§Œí¼ ìºë¦­í„°ì˜ ìŠ¤í”„ë¼ì´íŠ¸ ì¢Œí‘œë¥¼ ìœ„ë¡œ ì˜¬ë¦´ë ¤í–ˆëŠ”ë° ê¸‰í•´ì„œ ê¸‰ì¡°í•¨.)
     public void Ride(StatHandler stat = null, AnimationHandler animation = null)
     {
         animationHandler.StopAnim();
@@ -113,7 +113,7 @@ public class PlayerController : BaseController
             originalAnim = null;
         }
     }
-    //¹İ°æ È®ÀÎ¿ë ±âÁî¸ğ
+    //ë°˜ê²½ í™•ì¸ìš© ê¸°ì¦ˆëª¨
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

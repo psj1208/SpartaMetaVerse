@@ -15,7 +15,7 @@ public class AnimationHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// objÀÇ °­µµ¿¡ µû¶ó Move¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÀÛµ¿
+    /// objì˜ ê°•ë„ì— ë”°ë¼ Moveì• ë‹ˆë©”ì´ì…˜ì´ ì‘ë™.
     /// </summary>
     /// <param name="obj"></param>
     public void Move(Vector2 obj)

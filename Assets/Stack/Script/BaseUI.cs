@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BaseUI : MonoBehaviour
 {
+    //.
     protected UIManagerStack uiManager;
 
     public virtual void Init(UIManagerStack uiManager)

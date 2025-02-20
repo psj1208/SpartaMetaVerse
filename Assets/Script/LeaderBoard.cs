@@ -6,6 +6,7 @@ using static Record;
 
 public class LeaderBoard : MonoBehaviour
 {
+    //.
     [SerializeField] private TextMeshProUGUI stackScore;
     int stackSc;
 

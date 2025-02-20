@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameUI : BaseUI
 {
+    //.
     TextMeshProUGUI scoreText;
     TextMeshProUGUI comboText;
     TextMeshProUGUI maxComboText;

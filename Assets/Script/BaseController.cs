@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
+    //.
     protected Rigidbody2D _rigidbody;
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;

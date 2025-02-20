@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NpcInteract : BaseInteract
 {
-    //npc¿ë ½ºÅ©¸³Æ®
+    //npcìš© ìŠ¤í¬ë¦½íŠ¸.
     [SerializeField] private int npcCode = 0;
     public int NpcCode { get { return npcCode; } }
     public override void Interact()

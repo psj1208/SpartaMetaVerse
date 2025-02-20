@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AccessoryPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     [SerializeField] private GameObject[] gameObjects;
     private PlayerController player;
     void Start()

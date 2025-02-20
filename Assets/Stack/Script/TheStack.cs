@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TheStack : MonoBehaviour
 {
-    // ½ºÅÃ °ÔÀÓÀº µüÈ÷ °Çµç °Ô ¾ø½À´Ï´Ù.
-    // Const Value
+    // ìŠ¤íƒ ê²Œì„ì€ ë”±íˆ ê±´ë“  ê²Œ ì—†ìŠµë‹ˆë‹¤.
+    // Const Value.
     private const float BoundSize = 3.5f;
     private const float MovingBoundsSize = 3f;
     private const float StackMovingSpeed = 5.0f;
@@ -78,7 +78,7 @@ public class TheStack : MonoBehaviour
             }
             else
             {
-                // °ÔÀÓ ¿À¹ö
+                // ê²Œì„ ì˜¤ë²„
                 Debug.Log("GameOver");
                 UpdateScore();
                 isGameOver = true;
@@ -93,7 +93,7 @@ public class TheStack : MonoBehaviour
 
     bool Spawn_Block()
     {
-        // ÀÌÀüºí·° ÀúÀå
+        // ì´ì „ë¸”ëŸ­ ì €ì¥
         if (lastBlock != null)
             prevBlockPosition = lastBlock.localPosition;
 
@@ -299,7 +299,7 @@ public class TheStack : MonoBehaviour
     {
         if (bestScore < stackCount)
         {
-            Debug.Log("ÃÖ°í Á¡¼ö °»½Å");
+            Debug.Log("ìµœê³  ì ìˆ˜ ê°±ì‹ ");
             bestScore = stackCount;
             bestCombo = maxCombo;
 

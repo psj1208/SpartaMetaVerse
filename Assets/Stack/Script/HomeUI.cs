@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HomeUI : BaseUI
 {
+    //.
     Button startButton;
     Button exitButton;
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreUI : BaseUI
 {
+    //.
     TextMeshProUGUI scoreText;
     TextMeshProUGUI comboText;
     TextMeshProUGUI bestScoreText;

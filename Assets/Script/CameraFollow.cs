@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         if (target == null)
             return;
     }
-    //Ä«¸Ş¶ó°¡ ÀÚ¿¬½º·´°Ô µû¶ó°¡µµ·Ï Lerp. ±×¸®°í ÀÌµ¿ ¹İ°æ Á¦ÇÑÀ» À§ÇÑ Clamp
+    //ì¹´ë©”ë¼ê°€ ìì—°ìŠ¤ëŸ½ê²Œ ë”°ë¼ê°€ë„ë¡ Lerp. ê·¸ë¦¬ê³  ì´ë™ ë°˜ê²½ ì œí•œì„ ìœ„í•œ Clamp.
     private void FixedUpdate()
     {
         if(target == null) return;
