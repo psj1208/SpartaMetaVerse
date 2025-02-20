@@ -11,7 +11,7 @@ public class LeaderBoard : MonoBehaviour
 
     public void Init()
     {
-        Debug.Log("∏Æ¥ı∫∏µÂ init!");
+        Debug.Log("Î¶¨ÎçîÎ≥¥Îìú init!");
         stackSc = PlayerPrefs.GetInt(StackBest, 0);
         stackScore.text = stackSc.ToString();
     }

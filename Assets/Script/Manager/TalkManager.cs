@@ -13,7 +13,8 @@ public enum TalkingType
     Quest,
     Action
 }
-//Npc¿Í »óÈ£ÀÛ¿ëÇØ¼­ ´ëÈ­·Î °¡±â À§ÇØ ½Äº°¿ë id, ´ëÈ­ Á¤º¸¸¦ ´ãÀº talk,±×¸®°í ¼±ÅÃÁö È¤Àº Çàµ¿ÀÌ µÇµµ·Ï TalkingTypeÀ» Æ÷ÇÔÇÑ º¯¼öÇüÀ» ¼±¾ğ
+//Npcì™€ ìƒí˜¸ì‘ìš©í•´ì„œ ëŒ€í™”ë¡œ ê°€ê¸° ìœ„í•´ ì‹ë³„ìš© id, ëŒ€í™” ì •ë³´ë¥¼ ë‹´ì€ talk,ê·¸ë¦¬ê³  ì„ íƒì§€ í˜¹ì€ í–‰ë™ì´ ë˜ë„ë¡ TalkingTypeì„ í¬í•¨í•œ ë³€ìˆ˜í˜•ì„ ì„ ì–¸
+//ì–´ë µë„¤ìš”. JSONë³€í™˜ê°™ì€ ê²ƒì„ ì‚¬ìš©í•´ì„œ ê¸°íšìê°€ í¸í•˜ê²Œ ë°”ê¾¸ê²Œ í• ë ¤ë©´ êµ¬ì¡°ë¥¼ ì¢€ ë°”ê¿”ì•¼ê²Ÿë„¤ìš”.
 public struct Talking
 {
     public int id;
@@ -30,7 +31,7 @@ public struct Talking
 
 public class TalkManager : MonoBehaviour
 {
-    //TalkManager¸¦ À§ÇÑ ±¸Á¶Ã¼.(´ëÈ­ id,´ëÈ­¹®,¼±ÅÃÁö(¼±ÅÃÁö °¹¼ö¿Í ÇØ´çÇÏ´Â ÀÛµ¿ ÇÔ¼ö Æ÷ÇÔ)
+    //TalkManagerë¥¼ ìœ„í•œ êµ¬ì¡°ì²´.(ëŒ€í™” id,ëŒ€í™”ë¬¸,ì„ íƒì§€(ì„ íƒì§€ ê°¯ìˆ˜ì™€ í•´ë‹¹í•˜ëŠ” ì‘ë™ í•¨ìˆ˜ í¬í•¨)
     public static TalkManager instance;
     List<Talking> talkData;
     private void Awake()
@@ -51,16 +52,16 @@ public class TalkManager : MonoBehaviour
     {
         talkData.Add(new Talking(
             1000,
-            new string[] { "¹İ°©½À´Ï´Ù.", "¿©±â´Â ½ºÆÄ¸£Å¸ °ø°£ÀÔ´Ï´Ù.", "¹İ°¡¿ö¿ä." },
+            new string[] { "ë°˜ê°‘ìŠµë‹ˆë‹¤.", "ì—¬ê¸°ëŠ” ìŠ¤íŒŒë¥´íƒ€ ê³µê°„ì…ë‹ˆë‹¤.", "ë°˜ê°€ì›Œìš”." },
             new (string, int, TalkingType)[]
             {
-                ("¹İ°©½À´Ï´Ù.", 1001, TalkingType.Select),
-                ("¹İ°©Áö ¾Ê½À´Ï´Ù.", 1002, TalkingType.Select)
+                ("ë°˜ê°‘ìŠµë‹ˆë‹¤.", 1001, TalkingType.Select),
+                ("ë°˜ê°‘ì§€ ì•ŠìŠµë‹ˆë‹¤.", 1002, TalkingType.Select)
             }
             ));
         talkData.Add(new Talking(
             1001,
-            new string[] { "¿¹ÀÇ°¡ ¹Ù¸£½Ã±º¿ä." },
+            new string[] { "ì˜ˆì˜ê°€ ë°”ë¥´ì‹œêµ°ìš”." },
             new (string, int, TalkingType)[]
             {
                 ("",1005,TalkingType.Talk)
@@ -68,52 +69,52 @@ public class TalkManager : MonoBehaviour
             ));
         talkData.Add(new Talking(
             1002,
-            new string[] { "¿¹ÀÇ°¡ ¾øÀ¸½Ã±º¿ä." },
+            new string[] { "ì˜ˆì˜ê°€ ì—†ìœ¼ì‹œêµ°ìš”." },
             new (string, int, TalkingType)[]
             {
-                ("½Î¿ìÀÚ!", 1000,TalkingType.Action)
+                ("ì‹¸ìš°ì!", 1000,TalkingType.Action)
             }
             ));
         talkData.Add(new Talking(
             1005,
-            new string[] { "¸¶À½ ²¯ µÑ·¯º¸½Ã±â ¹Ù¶ø´Ï´Ù." }
+            new string[] { "ë§ˆìŒ ê» ë‘˜ëŸ¬ë³´ì‹œê¸° ë°”ëë‹ˆë‹¤." }
             ));
         talkData.Add(new Talking(
             1050,
-            new string[] { "¾×¼¼¼­¸®¸¦ º¯°æÇÏ½Ã°Ú¾î¿ä?" },
+            new string[] { "ì•¡ì„¸ì„œë¦¬ë¥¼ ë³€ê²½í•˜ì‹œê² ì–´ìš”?" },
             new (string, int, TalkingType)[]
             {
-                ("º¯°æÇÏ°Ú½À´Ï´Ù.", 1002,TalkingType.Action),
-                ("¾ÆÁ÷ÀÔ´Ï´Ù.", 5002,TalkingType.Select)
+                ("ë³€ê²½í•˜ê² ìŠµë‹ˆë‹¤.", 1002,TalkingType.Action),
+                ("ì•„ì§ì…ë‹ˆë‹¤.", 5002,TalkingType.Select)
             }
             ));
         talkData.Add(new Talking(
             5000,
-            new string[] {"Stack¿¡ ÀÔÀåÇÏ½Ã°Ú½À´Ï±î?"},
+            new string[] {"Stackì— ì…ì¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?"},
             new (string, int, TalkingType)[]
             {
-                ("ÀÔÀåÇÏ°Ú½À´Ï´Ù.", 1001,TalkingType.Action),
-                ("¾ÆÁ÷ÀÔ´Ï´Ù.", 5002,TalkingType.Select)
+                ("ì…ì¥í•˜ê² ìŠµë‹ˆë‹¤.", 1001,TalkingType.Action),
+                ("ì•„ì§ì…ë‹ˆë‹¤.", 5002,TalkingType.Select)
             }
             ));
         talkData.Add(new Talking(
             5002,
-            new string[] { "¾Ë°Ú½À´Ï´Ù." }
+            new string[] { "ì•Œê² ìŠµë‹ˆë‹¤." }
             ));
         talkData.Add(new Talking(
             5050,
-            new string[] { "¸®´õº¸µå¸¦ È®ÀÎÇÏ½Ã°Ú½À´Ï±î?" },
+            new string[] { "ë¦¬ë”ë³´ë“œë¥¼ í™•ì¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?" },
             new (string, int, TalkingType)[]
             {
-                ("È®ÀÎÇÏ°Ú½À´Ï´Ù.", 1003,TalkingType.Action),
-                ("¾ÆÁ÷ÀÔ´Ï´Ù.", 5002,TalkingType.Select)
+                ("í™•ì¸í•˜ê² ìŠµë‹ˆë‹¤.", 1003,TalkingType.Action),
+                ("ì•„ì§ì…ë‹ˆë‹¤.", 5002,TalkingType.Select)
             }
             ));
     }
     
 
     /// <summary>
-    /// Talking Á¤º¸ °¡Á®¿À±â. ?¼±¾ğ ²À ÇØ¾ßÇÔ.
+    /// Talking ì •ë³´ ê°€ì ¸ì˜¤ê¸°. ?ì„ ì–¸ ê¼­ í•´ì•¼í•¨.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

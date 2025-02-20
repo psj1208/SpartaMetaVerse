@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ActionManager : MonoBehaviour
 {
-    //¾×¼ÇÀ» ´ãÀº ¸®½ºÆ®¸¦ ¸¸µé¾î¼­ UIManager¿¡¼­ ÀÌ¿ë °¡´ÉÇÏ°Ô ¸¸µé¾ú½À´Ï´Ù.(´ëÈ­ ¼±ÅÃÁö È¤Àº Æ®¸®°Å¸¦ °ñ¶ùÀ» ¶§ ÇÔ¼ö°¡ ÀÛµ¿ÇÏµµ·Ï ¸¸µé±â À§ÇÔ)
+    //ì•¡ì…˜ì„ ë‹´ì€ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ì–´ì„œ UIManagerì—ì„œ ì´ìš© ê°€ëŠ¥í•˜ê²Œ ë§Œë“¤ì—ˆìŠµë‹ˆë‹¤.(ëŒ€í™” ì„ íƒì§€ í˜¹ì€ íŠ¸ë¦¬ê±°ë¥¼ ê³¨ëì„ ë•Œ í•¨ìˆ˜ê°€ ì‘ë™í•˜ë„ë¡ ë§Œë“¤ê¸° ìœ„í•¨)
     public static ActionManager instance;
     List<(int id, Action ac)> actionlist;
 
@@ -32,7 +32,7 @@ public class ActionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¾×¼Ç¸®½ºÆ®(´ëÈ­ÀÇ Çàµ¿°ªÀ¸·Î ÀÛ¿ë)ÀÇ id¸¦ °Ë»öÇØ¼­ ¸®ÅÏ.
+    /// ì•¡ì…˜ë¦¬ìŠ¤íŠ¸(ëŒ€í™”ì˜ í–‰ë™ê°’ìœ¼ë¡œ ì‘ìš©)ì˜ idë¥¼ ê²€ìƒ‰í•´ì„œ ë¦¬í„´.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

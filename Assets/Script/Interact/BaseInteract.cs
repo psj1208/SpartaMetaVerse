@@ -28,10 +28,10 @@ public class BaseInteract : MonoBehaviour
     }
     public virtual void Interact()
     {
-        Debug.Log("»óÈ£ÀÛ¿ë!");
+        Debug.Log("ìƒí˜¸ì‘ìš©!");
         //UIManager.instance.InteractMessage(true);
     }
-    //ÁÖ¼® Ã³¸® µÈ °ÍÀº »óÈ£ÀÛ¿ë ¹üÀ§¸¦ NpcÇÑÅ× ÇÒ´çÇßÀ» ¶§ »ç¿ëÇÏ´ø °ÍÀÔ´Ï´Ù. ¸Ó¸® À§¿¡ E Ç¥½Ã ¶ß°Ô ÇØ³ù´Âµ¥. ¸·ÆÇ ¿Í¼­ ¸¾¿¡ ¾È µé¾î¼­ ¹Ù²Ù´Ùº¸´Ï ±î¸Ô¾ú½À´Ï´Ù.
+    //ì£¼ì„ ì²˜ë¦¬ ëœ ê²ƒì€ ìƒí˜¸ì‘ìš© ë²”ìœ„ë¥¼ Npcí•œí…Œ í• ë‹¹í–ˆì„ ë•Œ ì‚¬ìš©í•˜ë˜ ê²ƒì…ë‹ˆë‹¤. ë¨¸ë¦¬ ìœ„ì— E í‘œì‹œ ëœ¨ê²Œ í•´ë†¨ëŠ”ë°. ë§‰íŒ ì™€ì„œ ë§˜ì— ì•ˆ ë“¤ì–´ì„œ ë°”ê¾¸ë‹¤ë³´ë‹ˆ ê¹Œë¨¹ì—ˆìŠµë‹ˆë‹¤.
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {

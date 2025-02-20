@@ -8,15 +8,15 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
-    //Switch Case¹®¿¡¼­ TalkingTypeÀ» ÀÌ¿ëÇÏ¿© ±¸ºĞÇØ ¹öÆ°¿¡ ±â´ÉÀ» ³Ö½À´Ï´Ù.
-    //isActino°ú isSelect´Â ÇÃ·¹ÀÌ¾îÀÇ Çàµ¿À» ¸·±â À§ÇØ »óÈ²¿¡ ¸Â°Ô °ªÀ» º¯°æÇÕ´Ï´Ù.(ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ·¯¿¡¼­ ÀÌ¿ëÇÔ)
+    //Switch Caseë¬¸ì—ì„œ TalkingTypeì„ ì´ìš©í•˜ì—¬ êµ¬ë¶„í•´ ë²„íŠ¼ì— ê¸°ëŠ¥ì„ ë„£ìŠµë‹ˆë‹¤.
+    //isActinoê³¼ isSelectëŠ” í”Œë ˆì´ì–´ì˜ í–‰ë™ì„ ë§‰ê¸° ìœ„í•´ ìƒí™©ì— ë§ê²Œ ê°’ì„ ë³€ê²½í•©ë‹ˆë‹¤.(í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ì´ìš©í•¨)
     public static UIManager instance;
-    [Header("ÆĞ³Î µî·Ï")]
+    [Header("íŒ¨ë„ ë“±ë¡")]
     [SerializeField] private GameObject talkPanel;
     [SerializeField] private GameObject AcPanel;
     [SerializeField] private GameObject headTextPanel;
     [SerializeField] private GameObject LeaderBoardPanel;
-    [Header("±× ¿Ü")]
+    [Header("ê·¸ ì™¸")]
     [SerializeField] private Text text;
     [SerializeField] private GameObject selectPrefab;
     [SerializeField] private GameObject selectLayer;
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
     {
         
     }
-    #region ´ëÈ­ Á¦¿Ü ÆĞ³Î Á¶ÀÛ °ü·Ã
+    #region ëŒ€í™” ì œì™¸ íŒ¨ë„ ì¡°ì‘ ê´€ë ¨
     public void ChangeAcPanelState(bool state)
     {
         AcPanel.SetActive(state);
@@ -79,9 +79,9 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
-    #region ´ëÈ­ °ü·Ã
+    #region ëŒ€í™” ê´€ë ¨
     /// <summary>
-    /// ´ëÈ­Ã¢ ¿­±â
+    /// ëŒ€í™”ì°½ ì—´ê¸°
     /// </summary>
     public void Action(GameObject input)
     {
@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Action¿¡¼­ ¿¬°èµÇ´Â ¸Ş¼­µå
+    /// Actionì—ì„œ ì—°ê³„ë˜ëŠ” ë©”ì„œë“œ
     /// </summary>
     /// <param name="id"></param>
     /// <param name="isNpc"></param>
@@ -171,7 +171,7 @@ public class UIManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Debug.LogError($"ActionManager¿¡¼­ ID {id_}¿¡ ´ëÇÑ ¾×¼ÇÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                                    Debug.LogError($"ActionManagerì—ì„œ ID {id_}ì— ëŒ€í•œ ì•¡ì…˜ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                                 }
                             });
                             break;
@@ -188,7 +188,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î ¸Ó¸® À§¿¡ »óÈ£ÀÛ¿ë °¡´É ¶ç¿ì±â.
+    /// í”Œë ˆì´ì–´ ë¨¸ë¦¬ ìœ„ì— ìƒí˜¸ì‘ìš© ê°€ëŠ¥ ë„ìš°ê¸°.
     /// </summary>
     /// <param name="inter_mess"></param>
     public void InteractMessage(bool inter_mess)
